@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS `teachers`;
 CREATE TABLE `teachers` (
   `id` INTEGER AUTO_INCREMENT ,
   `name` VARCHAR(40),
+  `image_url` VARCHAR(100),
   PRIMARY KEY (`id`)
 );
 
@@ -34,6 +35,7 @@ DROP TABLE IF EXISTS `students`;
 CREATE TABLE `students` (
   `id` INTEGER AUTO_INCREMENT,
   `name` VARCHAR(40),
+  `image_url` VARCHAR(100),
   PRIMARY KEY (`id`)
 );
 

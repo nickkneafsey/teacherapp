@@ -7,6 +7,8 @@ const routes = require('./routes');
 const app = express();
 app.set('port', (process.env.PORT || 8006));
 
+app.use(express.static('client'));
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('combined'));
