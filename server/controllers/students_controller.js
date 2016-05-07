@@ -18,6 +18,7 @@ module.exports = {
   },
 
   addPhotoUrl: function(req, res) {
+    const id = req.params.id;
     const fileName = req.file.originalname.replace(/ /gi, '+') //+Math.floor(Math.random()*5000)
     const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
 
@@ -35,8 +36,16 @@ module.exports = {
       if (err) {
         res.send(500);
       }
+      console.log(url);
+      const params = [url, id];
+      studentsModel.addPhotoUrl(params, function(err, results) {
+        if(err) {
+          res.send(500);
+        }
 
-      res.send(url)
+        res.send(200);
+      })
+
     })
 
   }
