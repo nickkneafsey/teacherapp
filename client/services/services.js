@@ -61,10 +61,32 @@ angular.module('teacherApp.factories', [])
     .then(function(resp) {
       return resp.data;
     });
+  };
+
+  var getOneClass = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/classes/' + id
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
+  };
+
+  var getStudentsInClass = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/classes/' + id + '/students'
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
   }
 
   return {
-    getAllClasses: getAllClasses
+    getAllClasses: getAllClasses,
+    getOneClass: getOneClass,
+    getStudentsInClass: getStudentsInClass
   }
 }])
 
