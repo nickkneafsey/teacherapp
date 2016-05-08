@@ -3,6 +3,7 @@ var teacherApp = angular.module('teacherApp', [
   'teacherApp.mainController', 
   'teacherApp.studentsController',
   'teacherApp.teachersController',
+  'teacherApp.teacherController',
   'teacherApp.classController',
   'teacherApp.classesController',
   'teacherApp.singleStudentController',
@@ -24,6 +25,11 @@ teacherApp.config(['$stateProvider', '$urlRouterProvider',
         url: '/teachers',
         templateUrl: './templates/teachers.html',
         controller: 'teachersController'
+      })
+      .state('teacher', {
+        url: '/teachers/:id',
+        templateUrl: './templates/teacher.html',
+        controller: 'teacherController'
       })
       .state('classes', {
         url: '/classes',

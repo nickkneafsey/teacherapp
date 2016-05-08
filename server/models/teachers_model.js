@@ -6,5 +6,11 @@ module.exports = {
     db.query(queryStr, params, function(err, results) {
       callback(err, results);
     });
+  },
+  getOneTeacher: function(params, callback) {
+    const queryStr = "SELECT * FROM teachers WHERE id=?";
+    db.query(queryStr, params, function(err, results) {
+      callback(err, results);
+    })
   }
 }

@@ -4,10 +4,16 @@ module.exports = {
   getAll: function(req, res) {
     params = [];
     teachersModel.getAll(params, function (err, results) {
-      if (err) {
-        res.sendStatus(500);
-      }
+      if (err) { res.sendStatus(500); }
       res.json(results);
     });
+  },
+
+  getOneTeacher: function(req, res) {
+    params = [req.params.id];
+    teachersModel.getOneTeacher(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
   }
 };
