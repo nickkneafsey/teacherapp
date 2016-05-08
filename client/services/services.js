@@ -111,8 +111,19 @@ angular.module('teacherApp.factories', [])
     });
   }
 
+  var getTeachersClasses = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/teachers/' + id +'/classes'
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  }
+
   return {
     getAllTeachers: getAllTeachers,
-    getOneTeacher: getOneTeacher
+    getOneTeacher: getOneTeacher,
+    getTeachersClasses: getTeachersClasses
   }
 }])

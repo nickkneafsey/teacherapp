@@ -15,5 +15,13 @@ module.exports = {
       if (err) { res.sendStatus(500); }
       res.json(results);
     })
+  },
+
+  getTeachersClasses: function(req, res) {
+    params = [req.params.id];
+    teachersModel.getTeachersClasses(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
   }
 };
