@@ -1,13 +1,6 @@
 var mysql = require('mysql');
 require('dotenv').load();
 
-// var connection = mysql.createConnection({
-//   user: "root",
-//   password: "",
-//   database: "stanford"
-// })
-
-
 if (!process.env.deployCheck){
   var connection = mysql.createConnection({
     user: "root",

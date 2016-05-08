@@ -93,10 +93,41 @@ ALTER TABLE `students_classes` ADD FOREIGN KEY (class_id) REFERENCES `classes` (
 
 INSERT INTO `teachers` (`name`) VALUES
 ('Johnson');
+
+INSERT INTO `teachers` (`name`) VALUES
+('Donaldson');
+
+INSERT INTO `teachers` (`name`) VALUES
+('Kerry');
+
 INSERT INTO `students` (`name`) VALUES
 ('Williams');
-INSERT INTO `classes` (`teacher_id`,`days`,`time`) VALUES
-('1','MWF','9-10AM');
+
+INSERT INTO `students` (`name`) VALUES
+('Howard');
+
+INSERT INTO `students` (`name`) VALUES
+('Shaw');
+
+INSERT INTO `students` (`name`) VALUES
+('Gonzalez');
+
+INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
+('1','MWF','9-10AM', 'Mathematics', 201);
+
+INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
+('2','TTh','12-1PM', 'History', 300);
+
+
 INSERT INTO `students_classes` (`student_id`,`class_id`) VALUES
 ('1','1');
+
+INSERT INTO `students_classes` (`student_id`,`class_id`) VALUES
+('1','2');
+
+INSERT INTO `students_classes` (`student_id`,`class_id`) VALUES
+('3','1');
+
+INSERT INTO `students_classes` (`student_id`,`class_id`) VALUES
+('2','2');
 

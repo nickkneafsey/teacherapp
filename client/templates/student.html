@@ -1,13 +1,13 @@
 <section>
-  student
+  <img class="student-photo" src="{{student.image_url}}" alt="">
+  <h1>{{student.name}}</h1>
   <form ng-submit="updatePhoto()">
     <input id="file" type="file" />
     <input type="submit">
   </form>
 
-  <section ng-repeat="student in students">
-    <a href="#/students/{{student.id}}">{{student.name}} </a>
-    <img src="{{student.image_url}}" alt="">
+  <section>
+    {{classes}}
   </section>
 
 

@@ -10,21 +10,31 @@ module.exports = {
   getAll: function(req, res) {
     const params = [];
     studentsModel.getAll(params, function (err, results) {
-      if (err) {
-        res.sendStatus(500);
-      }
+      if (err) { res.sendStatus(500); }
       res.json(results);
     });
   },
 
+  getOneStudent:function(req, res) {
+    const params = [req.params.id];
+    studentsModel.getOneStudent(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
+  },
+
+  getStudentsSchedule: function(req, res) {
+    const params = [req.params.id];
+    studentsModel.getStudentsSchedule(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
+  },
+
   addPhotoUrl: function(req, res) {
-    console.log("FILE", req.file)
     const id = req.params.id;
     const fileName = req.file.originalname.replace(/ /gi, '_') //+Math.floor(Math.random()*5000)
     const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
-
-
-    console.log(fileName)
 
     const params = {
       Bucket: config.BUCKET_NAME,
@@ -33,19 +43,14 @@ module.exports = {
       ContentType: req.file.mimetype,
       Body: req.file.buffer
     };
-    console.log(params)
+
     s3.putObject(params, function(err, data) {
       console.log('DATA', data)
-      if (err) {
-        res.send(500);
-      }
-      console.log(url);
+      if (err) { res.send(500); }
+
       const params = [url, id];
       studentsModel.addPhotoUrl(params, function(err, results) {
-        if(err) {
-          res.send(500);
-        }
-
+        if(err) { res.send(500); }
         res.send(200);
       })
 

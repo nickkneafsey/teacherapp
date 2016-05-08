@@ -38,6 +38,16 @@ teacherApp.factory("StudentFactory", ['$http', function($http) {
     })
   };
 
+  var getOneStudent = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/students/' + id
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
+  };
+
   var updateStudentPhoto = function(id, data) {
     return $http({
       method: 'PUT',
@@ -48,11 +58,23 @@ teacherApp.factory("StudentFactory", ['$http', function($http) {
       },
       transformRequest: angular.identity
     })
+  };
+
+  var getStudentsSchedule = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/students/schedule/' + id
+    })
+    .then(function(resp) {
+      return resp.data;
+    })
   }
   
   return {
     getAllStudents: getAllStudents,
-    updateStudentPhoto: updateStudentPhoto
+    getOneStudent: getOneStudent,
+    updateStudentPhoto: updateStudentPhoto,
+    getStudentsSchedule: getStudentsSchedule
   }
 
 }])
@@ -78,22 +100,30 @@ teacherApp.controller('studentController', ['$scope', function($scope) {
 }]);
 
 teacherApp.controller('singleStudentController', ['$scope', 'StudentFactory', '$stateParams', '$document', function($scope, StudentFactory, $stateParams, $document) {
-  $scope.students = [];
-  var getAllStudents = function() {
-    StudentFactory.getAllStudents()
-      .then(function(students) {
-        $scope.students = students;
-      })
-  }
-  getAllStudents();
-  console.log($stateParams);
+  $scope.student = {};
+  $scope.classes = [];
+
+  var getStudent = function() {
+    StudentFactory.getOneStudent($stateParams.id).then(function(student) {
+      $scope.student = student[0];
+    })
+  };
+
+  var getStudentsSchedule = function() {
+    StudentFactory.getStudentsSchedule($stateParams.id).then(function(classes) {
+      $scope.classes = classes;
+    })
+  };
+
   $scope.updatePhoto = function() {
     var file = document.getElementById('file').files[0];
-    //file.name = file.name.replace(/ /gi, '+')
     var data = new FormData();
     data.append('studentPhoto', file)
     StudentFactory.updateStudentPhoto($stateParams.id, data).then(function() {
-      getAllStudents();
+      getStudent();
     })
   }
+
+  getStudent();
+  getStudentsSchedule();
 }]);
