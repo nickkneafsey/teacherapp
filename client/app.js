@@ -19,6 +19,11 @@ teacherApp.config(['$stateProvider', '$urlRouterProvider',
         templateUrl: './templates/main.html',
         controller: 'mainController'
       })
+      .state('teachers', {
+        url: '/teachers',
+        templateUrl: './templates/teachers.html',
+        controller: 'teachersController'
+      })
       .state('classes', {
         url: '/classes',
         templateUrl: './templates/classes.html',

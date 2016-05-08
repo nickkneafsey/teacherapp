@@ -1,4 +1,11 @@
 angular.module('teacherApp.teachersController', [])
-.controller('teacherController', ['$scope', function($scope) {
-  
+.controller('teachersController', ['$scope', 'TeachersFactory', function($scope, TeachersFactory) {
+  $scope.teachers = [];
+  var getAllTeachers = function() {
+    TeachersFactory.getAllTeachers()
+      .then(function(teachers) {
+        $scope.teachers = teachers;
+      })
+  }
+  getAllTeachers();
 }]);

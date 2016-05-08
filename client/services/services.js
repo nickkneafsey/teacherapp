@@ -67,3 +67,19 @@ angular.module('teacherApp.factories', [])
     getAllClasses: getAllClasses
   }
 }])
+
+.factory('TeachersFactory', ['$http', function($http) {
+  var getAllTeachers = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/teachers'
+    })
+    .then(function(resp) {
+      return resp.data;
+    });
+  }
+
+  return {
+    getAllTeachers: getAllTeachers
+  }
+}])
