@@ -1,8 +1,12 @@
 const teachersModel = require('../models/teachers_model');
 const Jimp = require('jimp');
 const AWS = require('aws-sdk');
-const config = require('../../config');
-AWS.config.update({accessKeyId: config.ACCESS_KEY_ID, secretAccessKey: config.SECRET_ACCESS_KEY, region: 'us-east-1'});
+const config = require('../../config') || null;
+AWS.config.update({
+  accessKeyId: config.ACCESS_KEY_ID || process.env.ACCESS_KEY_ID,
+  secretAccessKey: config.SECRET_ACCESS_KEY || process.env.SECRET_ACCESS_KEY,
+  region: 'us-east-1'
+});
 
 const s3 = new AWS.S3();
 
