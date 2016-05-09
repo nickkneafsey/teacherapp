@@ -7,6 +7,7 @@
         <a href="#/students/{{s.id}}">{{s.name}} </a> | Student ID:{{s.id}}
       </li>
     </ul>
+    <div class="alert alert-info" role="alert">Click on a student to change their profile image and view their class schedule</div>
   </section>
 
   <section class="col-md-4">
@@ -17,15 +18,18 @@
         <a href="#/teachers/{{s.id}}">{{s.name}} </a>
       </li>
     </ul>
+    <div class="alert alert-success" role="alert">Click on a teacher to change their profile image and view the classes taught by that teacher</div>
   </section>
   
   <section class="col-md-4">
   <h3><a href="/#/classes">Classes</a></h3>
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="s in classes">
+        <span class="glyphicon glyphicon-book"></span>
         <a href="#/classes/{{s.id}}">{{s.department}} {{s.code}}</a>
          <span class="right">{{s.days}} {{s.time}}</span>
       </li>
     </ul>
+    <div class="alert alert-danger" role="alert">Click on a class to view the class roster and add students to the class</div>
   </section>
 </div>
