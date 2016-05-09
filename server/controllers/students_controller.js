@@ -1,7 +1,11 @@
 const studentsModel = require('../models/students_model');
 const Jimp = require('jimp');
 const AWS = require('aws-sdk');
-const config = require('../../config') || null;
+const config = {};
+if (!process.env.deployCheck) {
+  config = require('../../config');
+}
+
 AWS.config.update({
   accessKeyId: config.ACCESS_KEY_ID || process.env.ACCESS_KEY_ID,
   secretAccessKey: config.SECRET_ACCESS_KEY || process.env.SECRET_ACCESS_KEY,
