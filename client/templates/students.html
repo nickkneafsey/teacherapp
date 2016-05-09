@@ -1,7 +1,11 @@
 <div>
+  <section>
   <h3>Students</h3>
-  <section ng-repeat="student in students">
-    <img class="student-photo" src="{{student.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
-    <a href="#/students/{{student.id}}">{{student.name}} </a>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="s in students">
+        <img class="student-photo" src="{{s.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
+        <a href="#/students/{{s.id}}">{{s.name}} </a> | Student ID:{{s.id}}
+      </li>
+    </ul>
   </section>
 </div>

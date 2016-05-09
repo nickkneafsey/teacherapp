@@ -1,4 +1,11 @@
 <div>
-  <h3>Teachers</h3>
-  {{teachers}}
+  <section>
+  <h3><a href="/#/teachers">Teachers</a></h3>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="s in teachers">
+        <img class="student-photo" src="{{s.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
+        <a href="#/teachers/{{s.id}}">{{s.name}} </a>
+      </li>
+    </ul>
+  </section>
 </div>

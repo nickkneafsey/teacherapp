@@ -1,6 +1,6 @@
 <section>
   <aside class="sidebar">
-    <img class="profile-photo" src="{{student.image_url}}" alt="">
+    <img class="profile-photo" src="{{student.image_url  || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
     <h1>{{student.name}}</h1>
     <p>Change Photo:</p>
     <form ng-submit="updatePhoto()">

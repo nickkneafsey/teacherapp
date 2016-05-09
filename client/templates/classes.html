@@ -1,4 +1,11 @@
 <section>
-  <h1>Classes</h1>
-  {{classes}}
+  <section>
+  <h3><a href="/#/classes">Classes</a></h3>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="s in classes">
+        <a href="#/classes/{{s.id}}">{{s.department}} {{s.code}}</a>
+         <span class="right">{{s.days}} {{s.time}}</span>
+      </li>
+    </ul>
+  </section>
 </section>
