@@ -42,7 +42,8 @@ module.exports = {
   addPhotoUrl: function(req, res) {
     const id = req.params.id;
     const fileName = Math.floor(Math.random()*5000) + req.file.originalname.replace(/ /gi, '_');
-    const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
+    const bucket = config.BUCKET_NAME || process.env.bucket,
+    const url = 'https://s3.amazonaws.com/' + bucket + '/' + fileName;
 
     const params = {
       Bucket: config.BUCKET_NAME || process.env.bucket,
