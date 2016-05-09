@@ -8,12 +8,11 @@
       <input class="btn btn-default btn-lg btn-block top5" type="submit">
     </form>
   </aside>
-  
   <section class="main">
     <h2>Class Schedule</h2>
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="s in classes">
-        <a href="#/classes/{{s.id}}">{{s.department}} {{s.code}}</a>
+        <a href="#/classes/{{s.class_id}}">{{s.department}} {{s.code}}</a>
          <span class="right">{{s.days}} {{s.time}}</span>
       </li>
     </ul>
