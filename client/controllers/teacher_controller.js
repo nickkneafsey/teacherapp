@@ -20,6 +20,15 @@ function($scope, $stateParams, TeachersFactory) {
     });
   };
 
+  $scope.updatePhoto = function() {
+    var file = document.getElementById('file').files[0];
+    var data = new FormData();
+    data.append('teacherPhoto', file)
+    TeachersFactory.updateTeacherPhoto($stateParams.id, data).then(function() {
+      getOneTeacher();
+    });
+  }
+
   getOneTeacher();
   getTeachersClasses();
 

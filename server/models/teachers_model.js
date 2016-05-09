@@ -18,5 +18,11 @@ module.exports = {
     db.query(queryStr, params, function(err, results) {
       callback(err, results);
     });
+  },
+  addPhotoUrl: function(params, callback) {
+    const queryStr = "UPDATE teachers SET image_url=? WHERE id=?";
+    db.query(queryStr, params, function(err, results) {
+      callback(err, results);
+    })
   }
 }

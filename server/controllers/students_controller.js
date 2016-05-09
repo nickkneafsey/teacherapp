@@ -31,9 +31,17 @@ module.exports = {
     })
   },
 
+  getStudentsNotInClass: function(req, res) {
+    const params = [req.params.id];
+    studentsModel.getStudentsNotInClass(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
+  },
+
   addPhotoUrl: function(req, res) {
     const id = req.params.id;
-    const fileName = req.file.originalname.replace(/ /gi, '_') //+Math.floor(Math.random()*5000)
+    const fileName = Math.floor(Math.random()*5000) + req.file.originalname.replace(/ /gi, '_') //+Math.floor(Math.random()*5000)
     const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
 
     const params = {

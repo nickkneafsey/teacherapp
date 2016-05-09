@@ -11,8 +11,10 @@ var teacherApp = angular.module('teacherApp', [
   'ui.router'
 ]);
 
-teacherApp.config(['$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+teacherApp.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider

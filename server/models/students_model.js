@@ -24,5 +24,11 @@ module.exports = {
     db.query(queryStr, params, function(err, results) {
       callback(err, results);
     })
+  },
+  getStudentsNotInClass: function(params, callback) {
+    const queryStr = "SELECT * FROM students WHERE id NOT IN (SELECT students.id from students LEFT OUTER JOIN students_classes ON (students.id=students_classes.student_id) WHERE students_classes.class_id = ?)";
+    db.query(queryStr, params, function(err, results) {
+      callback(err, results);
+    })
   }
 }

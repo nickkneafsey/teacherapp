@@ -1,6 +1,33 @@
 <div>
-  Single Class
-  {{class}}
 
-  {{students}}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2>{{class.department}} {{class.code}}</h2>
+      <p>Days: {{class.days}} Time: {{class.time}}</p>
+      <img class="student-photo" src="{{class.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
+      <p class="instructor-name">Instructor: {{class.name}}</p>
+    </div>
+  </div>
+
+  <h3>Class Roster</h3>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="s in students">
+      <img class="student-photo" src="{{s.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
+      {{s.name }} | Student ID:{{s.id}}
+    </li>
+  </ul>
+
+
+  <h3>Unenrolled Students</h3>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Filter</span>
+    <input type="text" ng-model="filter" class="form-control" placeholder="Filter Unenrolled Students" aria-describedby="basic-addon1">
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="s in unenrolledStudents | filter:filter">
+      <img class="student-photo" src="{{s.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
+      {{s.name }} | Student ID:{{s.id}}
+      <button type="button" class="btn btn-default right" ng-click="addStudentToClass(s.id)">Add To Class</button>
+    </li>
+  </ul>
 </div>

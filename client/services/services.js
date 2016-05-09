@@ -41,13 +41,23 @@ angular.module('teacherApp.factories', [])
     .then(function(resp) {
       return resp.data;
     })
+  };
+
+  var getStudentsNotInClass = function(id) {
+    return $http({
+      method: 'GET',
+      url: '/api/students/notenrolled/' +id 
+    }).then(function(resp) {
+      return resp.data;
+    })
   }
   
   return {
     getAllStudents: getAllStudents,
     getOneStudent: getOneStudent,
     updateStudentPhoto: updateStudentPhoto,
-    getStudentsSchedule: getStudentsSchedule
+    getStudentsSchedule: getStudentsSchedule,
+    getStudentsNotInClass: getStudentsNotInClass
   }
 
 }])
@@ -81,12 +91,23 @@ angular.module('teacherApp.factories', [])
     .then(function(resp) {
       return resp.data;
     })
+  };
+
+  addStudentToClass = function(data, id) {
+    return $http({
+      method: 'POST',
+      url: '/api/classes/' + id,
+      data: data
+    }).then(function(resp) {
+      return resp.data;
+    })
   }
 
   return {
     getAllClasses: getAllClasses,
     getOneClass: getOneClass,
-    getStudentsInClass: getStudentsInClass
+    getStudentsInClass: getStudentsInClass,
+    addStudentToClass: addStudentToClass
   }
 }])
 
@@ -121,9 +142,22 @@ angular.module('teacherApp.factories', [])
     });
   }
 
+  var updateTeacherPhoto = function(id, data) {
+    return $http({
+      method: 'PUT',
+      url: '/api/teachers/' + id,
+      data: data,
+      headers: {
+        'Content-Type': undefined
+      },
+      transformRequest: angular.identity
+    })
+  };
+
   return {
     getAllTeachers: getAllTeachers,
     getOneTeacher: getOneTeacher,
-    getTeachersClasses: getTeachersClasses
+    getTeachersClasses: getTeachersClasses,
+    updateTeacherPhoto: updateTeacherPhoto
   }
 }])

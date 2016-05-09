@@ -23,5 +23,13 @@ module.exports = {
       if (err) { res.sendStatus(500); }
       res.json(results);
     })
+  },
+
+  addStudentToClass: function(req, res) {
+    const params = [req.body.studentId, req.params.id];
+    classesModel.addStudentToClass(params, function(err, results) {
+      if (err) { res.sendStatus(500); }
+      res.json(results);
+    })
   }
 };

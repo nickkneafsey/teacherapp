@@ -1,3 +1,11 @@
 .student-photo {
   max-width: 5%;
 }
+
+.right {
+  float: right;
+}
+
+.instructor-name {
+  display:inline-block;
+}

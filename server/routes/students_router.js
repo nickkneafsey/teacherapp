@@ -8,5 +8,6 @@ router.get('/', studentsController.getAll);
 router.put('/:id', multer().single('studentPhoto'), studentsController.addPhotoUrl);
 router.get('/:id', studentsController.getOneStudent);
 router.get('/schedule/:id', studentsController.getStudentsSchedule);
+router.get('/notenrolled/:id', studentsController.getStudentsNotInClass);
 
 module.exports = router;
