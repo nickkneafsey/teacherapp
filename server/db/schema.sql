@@ -100,6 +100,9 @@ INSERT INTO `teachers` (`name`) VALUES
 INSERT INTO `teachers` (`name`) VALUES
 ('Kerry');
 
+INSERT INTO `teachers` (`name`) VALUES
+('Hill');
+
 INSERT INTO `students` (`name`) VALUES
 ('Williams');
 
@@ -112,11 +115,29 @@ INSERT INTO `students` (`name`) VALUES
 INSERT INTO `students` (`name`) VALUES
 ('Gonzalez');
 
+INSERT INTO `students` (`name`) VALUES
+('Chen');
+
+INSERT INTO `students` (`name`) VALUES
+('Jenkins');
+
+INSERT INTO `students` (`name`) VALUES
+('McDonald');
+
 INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
 ('1','MWF','9-10AM', 'Mathematics', 201);
 
 INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
 ('2','TTh','12-1PM', 'History', 300);
+
+INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
+('3','TTh','1-2PM', 'Sociology', 100);
+
+INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
+('4','MW','12-2PM', 'Computer Science', 301);
+
+INSERT INTO `classes` (`teacher_id`,`days`,`time`, `department`, `code`) VALUES
+('1','MTWTh','4-5PM', 'Basket Weaving', 283);
 
 
 INSERT INTO `students_classes` (`student_id`,`class_id`) VALUES
