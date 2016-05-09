@@ -49,7 +49,7 @@ module.exports = {
     const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
 
     const params = {
-      Bucket: config.BUCKET_NAME,
+      Bucket: config.BUCKET_NAME || process.env.bucket,
       Key: fileName,
       ACL: 'public-read',
       ContentType: req.file.mimetype,

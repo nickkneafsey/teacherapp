@@ -1,10 +1,10 @@
 const teachersModel = require('../models/teachers_model');
 const Jimp = require('jimp');
 const AWS = require('aws-sdk');
-const config = require('../../config') || null;
+const config = require('../../config') || {};
 AWS.config.update({
-  accessKeyId: config.ACCESS_KEY_ID || process.env.ACCESS_KEY_ID,
-  secretAccessKey: config.SECRET_ACCESS_KEY || process.env.SECRET_ACCESS_KEY,
+  accessKeyId: config.ACCESS_KEY_ID || process.env.accesskey,
+  secretAccessKey: config.SECRET_ACCESS_KEY || process.env.secretaccess,
   region: 'us-east-1'
 });
 
@@ -41,7 +41,7 @@ module.exports = {
     const url = 'https://s3.amazonaws.com/' + config.BUCKET_NAME + '/' + fileName;
 
     const params = {
-      Bucket: config.BUCKET_NAME,
+      Bucket: config.BUCKET_NAME || process.env.bucket,
       Key: fileName,
       ACL: 'public-read',
       ContentType: req.file.mimetype,
