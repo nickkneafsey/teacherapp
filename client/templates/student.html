@@ -1,5 +1,5 @@
 <section>
-  <aside class="sidebar">
+  <aside class="col-sm-3">
     <img class="profile-photo" src="{{student.image_url  || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
     <h1>{{student.name}}</h1>
     <p>Change Photo:</p>
@@ -8,8 +8,8 @@
       <input class="btn btn-default btn-lg btn-block top5" type="submit">
     </form>
   </aside>
-  <section class="main">
-    <h2>Class Schedule</h2>
+  <section class="col-sm-9">
+    <h2>Student Schedule</h2>
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="s in classes">
         <a href="#/classes/{{s.class_id}}">{{s.department}} {{s.code}}</a>
