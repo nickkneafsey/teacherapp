@@ -1,9 +1,11 @@
 .student-photo {
   max-width: 7.5%;
+  border-radius: 3px;
 }
 
 .teacher-photo {
   max-width: 5%;
+  border-radius: 2px;
 }
 
 .profile-photo {
