@@ -1,14 +1,11 @@
 const teachersModel = require('../models/teachers_model');
 const Jimp = require('jimp');
 const AWS = require('aws-sdk');
-const config = {};
-if (!process.env.deployCheck) {
-  config = require('../../config');
-}
+require('dotenv').load();
 
 AWS.config.update({
-  accessKeyId: config.ACCESS_KEY_ID || process.env.accesskey,
-  secretAccessKey: config.SECRET_ACCESS_KEY || process.env.secretaccess,
+  accessKeyId: process.env.accesskey,
+  secretAccessKey:  process.env.secretaccess,
   region: 'us-east-1'
 });
 
@@ -42,11 +39,11 @@ module.exports = {
   addPhotoUrl: function(req, res) {
     const id = req.params.id;
     const fileName = Math.floor(Math.random()*5000) + req.file.originalname.replace(/ /gi, '_');
-    const bucket = config.BUCKET_NAME || process.env.bucket,
+    const bucket = process.env.bucket;
     const url = 'https://s3.amazonaws.com/' + bucket + '/' + fileName;
 
     const params = {
-      Bucket: config.BUCKET_NAME || process.env.bucket,
+      Bucket: process.env.bucket,
       Key: fileName,
       ACL: 'public-read',
       ContentType: req.file.mimetype,
