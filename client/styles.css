@@ -2,6 +2,10 @@
   max-width: 7.5%;
 }
 
+.teacher-photo {
+  max-width: 5%;
+}
+
 .profile-photo {
   width: 100%;
   border-radius: 8px;
