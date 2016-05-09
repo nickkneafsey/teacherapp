@@ -1,13 +1,22 @@
 <section>
-  <img class="student-photo" src="{{student.image_url}}" alt="">
-  <h1>{{student.name}}</h1>
-  <form ng-submit="updatePhoto()">
-    <input id="file" type="file" />
-    <input type="submit">
-  </form>
-
-  <section>
-    {{classes}}
+  <aside class="sidebar">
+    <img class="profile-photo" src="{{student.image_url}}" alt="">
+    <h1>{{student.name}}</h1>
+    <p>Change Photo:</p>
+    <form ng-submit="updatePhoto()">
+      <input id="file" type="file" />
+      <input class="btn btn-default btn-lg btn-block top5" type="submit">
+    </form>
+  </aside>
+  
+  <section class="main">
+    <h2>Class Schedule</h2>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="s in classes">
+        <a href="#/classes/{{s.id}}">{{s.department}} {{s.code}}</a>
+         <span class="right">{{s.days}} {{s.time}}</span>
+      </li>
+    </ul>
   </section>
 
 

@@ -1,7 +1,6 @@
 <div>
   <section>
   <h3><a href="/#/students">Students</a></h3>
-
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="s in students">
         <img class="student-photo" src="{{s.image_url || 'https://tracker.moodle.org/secure/attachment/30912/f3.png'}}" alt="">
@@ -9,9 +8,6 @@
       </li>
     </ul>
   </section>
-
-  
-
 
   <section>
   <h3><a href="/#/teachers">Teachers</a></h3>
@@ -25,7 +21,6 @@
   
   <section>
   <h3><a href="/#/classes">Classes</a></h3>
-
     <ul class="list-group">
       <li class="list-group-item" ng-repeat="s in classes">
         <a href="#/classes/{{s.id}}">{{s.department}} {{s.code}}</a>

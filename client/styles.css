@@ -2,10 +2,32 @@
   max-width: 5%;
 }
 
+.profile-photo {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.sidebar {
+  width: 25%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: inline-block;
+}
+
+.main {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .right {
   float: right;
 }
 
 .instructor-name {
   display:inline-block;
+}
+
+.top5 {
+  margin-top: 5px;
 }
